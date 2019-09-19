@@ -1,6 +1,11 @@
 # my_parser
 
-## A random category.txt:
+
+## To use my_parser.py:
+
+./my_parser.py
+
+### A random category.txt:
 
 first_url
 second_url
