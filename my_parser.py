@@ -2,6 +2,7 @@
 
 from urllib.request import urlopen
 from os import path
+import time
 
 def parse_leclerc(url):
     product_url = []
@@ -30,8 +31,13 @@ def main():
         exit()
     category_url = read_file("category.txt")
     for i in range(len(category_url)):
-        product = parse_leclerc(category_url[i])
-        write_in_file(product)
+        if 'https://fd11-courses.leclercdrive.fr/' in category_url[i]:
+                print("Category URL:", category_url[i])
+                product = parse_leclerc(category_url[i])
+                write_in_file(product)
+                time.sleep(3)
+        else:
+                print("Not a leclerc url:", category_url[i])
 
 if __name__ == "__main__":
     main()
