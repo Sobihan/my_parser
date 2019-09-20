@@ -6,22 +6,22 @@ import time
 
 def parse_leclerc(url):
     product_url = []
-    page = urlopen(url).read().decode('utf-8')
-    split = page.split("\"")
+    page = urlopen(url)
+    if page.code != 200:
+        print(page.code, ":", url)
+    split = page.read().decode('utf-8').split("\"")
     for i  in range(len(split)):
         if split[i] == 'sUrlPageProduit':
               product_url.append(split[i + 2])
     return product_url
 
 def write_in_file(product):   
-    Product_Exist = path.exists("product.txt")
     file = open("product.txt", "a")
     for i in range(len(product)):
         file.write(product[i])
         file.write('\n')
 
 def read_file(category_url):
-    split = []
     file = open(category_url, "r").read()
     return file.split("\n")
 
