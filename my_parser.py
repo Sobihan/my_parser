@@ -1,4 +1,7 @@
 #!/usr/local/bin/python3
+# Le code de soso
+# Copyright Sobihan
+# https://github.com/sobihan/my_parser
 
 from urllib.request import urlopen
 from os import path
